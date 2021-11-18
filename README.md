@@ -4,7 +4,7 @@
 
 ## What is the AoC (Advent of Code)?
 
-Advent of Code 는 매년 12월 1일 부터 25일 까지 진행되는 온라인 이벤트입니다.
+[Advent of Code](https://adventofcode.com/2021/about)는 매년 12월 1일 부터 25일 까지 진행되는 온라인 이벤트입니다.
 
 매일 자정(EST/UTC-5 기준)에 하나의 프로그래밍 퍼즐이 공개되고, 정답을 제출하면 제출한 순서대로 1~100 점 사이의 점수를 받습니다. (가장 빨리 푼 사람이 100점, 그 다음부터 1점씩 떨어짐)
 
