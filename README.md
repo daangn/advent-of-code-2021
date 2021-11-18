@@ -29,6 +29,13 @@
 - 다른 참가자/언어 디렉토리를 건드리지 말아주세요.
 - 문제의 입력 데이터나 정답 결과를 코드에 포함하지 말아주세요.
   테스트는 제공되는 샘플 데이터를 사용하고, 정답은 직접 AoC 홈페이지에 제출하세요.
+- 가급적이면 컴포트존을 벗어나려고 애써봅시다.
+
+> “A language that doesn't affect the way you think about programming is not worth knowing.”
+> 
+> “당신이 프로그래밍에 대해 생각하는 방식에 영향을 미치지 못하는 언어는 알 가치가 없습니다.”
+> 
+> ― Alan J. Perlis
 
 ## Entries
 
