@@ -13,5 +13,5 @@ gmake -f erlang.mk bootstrap bootstrap-rel
 
 ## How to Run?
 ```bash
-make run
+gmake run
 ```
