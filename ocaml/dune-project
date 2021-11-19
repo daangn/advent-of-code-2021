@@ -1,0 +1,19 @@
+(lang dune 2.9)
+(name advent-of-code-2021)
+(source
+ (github daangn/advent-of-code-2021))
+(homepage
+ "https://github.com/daangn/advent-of-code-2021/tree/main/ocaml")
+(authors
+ "Hyeseong Kim <tim@daangn.com>")
+(maintainers
+ "Hyeseong Kim <tim@daangn.com>")
+(generate_opam_files true)
+(package
+ (name advent-of-code-2021)
+ (synopsis "Solutions for Advent of Code 2021")
+ (depends
+  (ocaml (>= 4.12))
+  (dune (>= 2.0))
+  (odoc :with-doc)
+  (alcotest :with-test)))

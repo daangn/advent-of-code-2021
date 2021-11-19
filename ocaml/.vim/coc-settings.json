@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "ocaml": {
+      "command": "opam",
+      "args": ["exec", "--", "ocamllsp"],
+      "filetypes": ["ocaml"],
+      "rootPatterns": ["dune-project"]
+    }
+  }
+}

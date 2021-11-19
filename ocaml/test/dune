@@ -1,0 +1,4 @@
+(tests
+ (package advent-of-code-2021)
+ (names run_test)
+ (libraries alcotest lib))
