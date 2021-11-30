@@ -43,6 +43,7 @@
 |:---- |:---------------------------------------------- | -------- | --------------- |
 | Tim  | [cometkim](https://github.com/cometkim)        | OCaml    | [(Link)](ocaml) |
 | Carter | [jinwoo1225](https://github.com/jinwoo1225)  | Erlang   | [(Link)](https://www.erlang.org/doc/getting_started/intro.html) |
+| Jungin | [yyna](https://github.com/yyna)              | Clojure  | [(Link)](https://clojure.org/)|
 
 ## LICENSE
 
