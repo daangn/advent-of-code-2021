@@ -1,16 +1,24 @@
-let test_greet_name name () =
-  let greeting = Lib.Greeter.greet name in
-  let expected = "Hello, " ^ name ^ "!" in
-  Alcotest.(check string) "equals" greeting expected
+let test_day1_challenge1 () =
+  let input = "199
+200
+208
+210
+200
+207
+240
+269
+260
+263"
+  in
+  let answer = Lib.Day1.solution1 input in
+  Alcotest.(check int) "equals" answer 7
 
 let () =
   let open Alcotest in
   run "Aoc"
     [
-      ( "Greet",
+      ( "Day 1",
         [
-          test_case "Advent of Code 2021" `Quick
-            (test_greet_name "Advent of Code 2021");
-          test_case "OCaml" `Quick (test_greet_name "OCaml");
+          test_case "Challenge 1" `Quick test_day1_challenge1;
         ] );
     ]
