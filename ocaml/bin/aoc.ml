@@ -23,6 +23,7 @@ in
 let answer =
   match (!day, !part) with
   | 1, 1 -> Day1.part1 input
+  | 1, 2 -> Day1.part2 input
   | _ -> raise (No_solution (!day, !part))
 in
 print_endline answer

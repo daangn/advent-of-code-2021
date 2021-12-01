@@ -1,2 +1,3 @@
 (library
- (name lib))
+ (name lib)
+ (libraries core))
