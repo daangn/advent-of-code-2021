@@ -2,7 +2,7 @@ type input = int list
 
 let parse input = input |> String.split_on_char '\n' |> List.map int_of_string
 
-let solution1 input =
+let part1 input =
   let input = parse input in
   let count acc curr =
     let acc, prev = acc in

@@ -59,4 +59,4 @@ utop: ## Run a REPL and link with the project's libraries
 
 .PHONY: run
 run: all ## Run the produced executable
-	opam exec -- dune exec --root . bin/main.exe $(ARGS)
+	opam exec -- dune exec --root . bin/aoc.exe $(ARGS)
