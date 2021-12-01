@@ -8,6 +8,7 @@ bug-reports: "https://github.com/daangn/advent-of-code-2021/issues"
 depends: [
   "ocaml" {>= "4.12"}
   "dune" {>= "2.9" & >= "2.0"}
+  "core"
   "odoc" {with-doc}
   "alcotest" {with-test}
 ]

@@ -42,6 +42,13 @@ make switch
 
 ## Run tests
 
-```
+```bash
 make test
+```
+
+## Run solution
+
+```bash
+# make 먼저 실행
+./_build/install/default/bin/aoc -d 1 -p 1 < input.txt
 ```

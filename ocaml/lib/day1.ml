@@ -14,4 +14,4 @@ let solution1 input =
         then (acc + 1, curr)
         else (acc, curr)
   in
-  input |> List.fold_left count (0, -1) |> fst
+  input |> List.fold_left count (0, -1) |> fst |> string_of_int

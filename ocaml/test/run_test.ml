@@ -11,7 +11,7 @@ let test_day1_challenge1 () =
 263"
   in
   let answer = Lib.Day1.solution1 input in
-  Alcotest.(check int) "equals" answer 7
+  Alcotest.(check string) "equals" answer "7"
 
 let () =
   let open Alcotest in

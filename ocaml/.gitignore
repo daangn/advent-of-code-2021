@@ -3,3 +3,6 @@
 
 _build/
 _opam/
+
+# input
+*.txt

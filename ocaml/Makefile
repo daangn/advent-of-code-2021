@@ -56,3 +56,7 @@ watch: ## Watch for the filesystem and rebuild on every change
 .PHONY: utop
 utop: ## Run a REPL and link with the project's libraries
 	opam exec -- dune utop --root . lib -- -implicit-bindings
+
+.PHONY: run
+run: all ## Run the produced executable
+	opam exec -- dune exec --root . bin/main.exe $(ARGS)

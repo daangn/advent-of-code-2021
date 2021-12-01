@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (public_name aoc)
+ (libraries core lib))
