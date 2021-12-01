@@ -43,6 +43,7 @@
 |:------ |:---------------------------------------------- | -------- | ---------------- |
 | Tim    | [cometkim](https://github.com/cometkim)        | OCaml    | [(Link)](ocaml)  |
 | Carter | [jinwoo1225](https://github.com/jinwoo1225)    | Erlang   | [(Link)](erlang) |
+| Thomas | [sanxiyn](https://github.com/sanxiyn)          | Julia    | [(Link)](julia)  |
 
 ## LICENSE
 
