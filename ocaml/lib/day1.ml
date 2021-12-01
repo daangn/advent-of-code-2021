@@ -16,9 +16,8 @@ let part1 input = parse input |> count_of_increase |> string_of_int
 
 let part2 input =
   let window elems =
-    let wsize = 3 in
     let slice elems =
-      match List.take elems wsize with _ :: _ :: _ as xs -> xs | _ -> []
+      match List.take elems 3 with _ :: _ :: _ as xs -> xs | _ -> []
     in
     elems
     |> List.mapi ~f:(fun i _ -> List.drop elems i)
