@@ -1,10 +1,18 @@
 exception Invalid_input
 
-type command = Forward of int | Down of int | Up of int
+module Pos = struct
+  type t = { hpos : int; depth : int; aim : int }
 
-type pos = { hpos : int; depth : int; aim : int }
+  let make () = { hpos = 0; depth = 0; aim = 0 }
 
-let init = { hpos = 0; depth = 0; aim = 0 }
+  type command = Forward of int | Down of int | Up of int
+
+  let instruct ~f pos cmds =
+    let pos = cmds |> List.fold_left f pos in
+    pos.hpos * pos.depth
+end
+
+open Pos
 
 let parse input =
   input |> String.split_on_char '\n'
@@ -18,10 +26,6 @@ let parse input =
            | _ -> raise Invalid_input)
        | _ -> raise Invalid_input)
 
-let instruct ~f pos cmds = cmds |> List.fold_left f pos
-
-let mul pos = pos.hpos * pos.depth
-
 let part1 input =
   let apply pos cmd =
     match cmd with
@@ -29,7 +33,7 @@ let part1 input =
     | Down x -> { pos with depth = pos.depth + x }
     | Up x -> { pos with depth = pos.depth - x }
   in
-  parse input |> instruct init ~f:apply |> mul |> string_of_int
+  parse input |> instruct ~f:apply (make ()) |> string_of_int
 
 let part2 input =
   let apply pos cmd =
@@ -39,4 +43,4 @@ let part2 input =
     | Forward x ->
         { pos with hpos = pos.hpos + x; depth = pos.depth + (pos.aim * x) }
   in
-  parse input |> instruct init ~f:apply |> mul |> string_of_int
+  parse input |> instruct ~f:apply (make ()) |> string_of_int
