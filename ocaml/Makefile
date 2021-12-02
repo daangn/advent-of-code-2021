@@ -53,6 +53,10 @@ fmt: ## Format the codebase with ocamlformat
 watch: ## Watch for the filesystem and rebuild on every change
 	opam exec -- dune build --root . --watch
 
+.PHONY: watchtest
+watchtest: ## Watch for the filesystem and rebuild on every change
+	opam exec -- dune runtest --root . --watch
+
 .PHONY: utop
 utop: ## Run a REPL and link with the project's libraries
 	opam exec -- dune utop --root . lib -- -implicit-bindings
