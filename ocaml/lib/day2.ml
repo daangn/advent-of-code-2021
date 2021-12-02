@@ -1,5 +1,3 @@
-exception Invalid_input
-
 module Pos = struct
   type t = { hpos : int; depth : int; aim : int }
 
@@ -11,8 +9,11 @@ module Pos = struct
     let pos = cmds |> List.fold_left f pos in
     pos.hpos * pos.depth
 end
-
 open Pos
+
+exception Invalid_input
+
+let test_input = "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2"
 
 let parse input =
   input |> String.split_on_char '\n'
@@ -35,6 +36,10 @@ let part1 input =
   in
   parse input |> instruct ~f:apply (make ()) |> string_of_int
 
+let%expect_test "part1" =
+  print_string (part1 test_input);
+  [%expect {| 150 |}]
+
 let part2 input =
   let apply pos cmd =
     match cmd with
@@ -44,3 +49,7 @@ let part2 input =
         { pos with hpos = pos.hpos + x; depth = pos.depth + (pos.aim * x) }
   in
   parse input |> instruct ~f:apply (make ()) |> string_of_int
+
+let%expect_test "part2" =
+  print_string (part2 test_input);
+  [%expect {| 900 |}]

@@ -10,7 +10,8 @@ depends: [
   "dune" {>= "2.9" & >= "2.0"}
   "core"
   "odoc" {with-doc}
-  "alcotest" {with-test}
+  "ppx_inline_test" {with-test}
+  "ppx_expect" {with-test}
 ]
 build: [
   ["dune" "subst"] {dev}
