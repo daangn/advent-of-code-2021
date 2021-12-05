@@ -9,6 +9,7 @@ module Pos = struct
     let pos = cmds |> List.fold_left f pos in
     pos.hpos * pos.depth
 end
+
 open Pos
 
 exception Invalid_input
