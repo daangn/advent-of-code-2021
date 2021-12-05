@@ -27,6 +27,7 @@ let answer =
   | 2, 1 -> Day2.part1 input
   | 2, 2 -> Day2.part2 input
   | 3, 1 -> Day3.part1 input
+  | 3, 2 -> Day3.part2 input
   | _ -> raise (No_solution (!day, !part))
 in
 print_endline answer

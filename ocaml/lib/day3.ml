@@ -22,24 +22,66 @@ let parse input =
        (Seq.map (function '0' -> Off | '1' -> On | _ -> raise Invalid_input))
   |> List.map Array.of_seq
 
+let bits_to_dec bits =
+  let bits =
+    bits
+    |> Array.map (function Off -> '0' | On -> '1')
+    |> Array.to_seq |> String.of_seq
+  in
+  Scanf.sscanf ("0b" ^ bits) "%i" (fun x -> x)
+
+let diagnostic input =
+  let len = input |> List.hd |> Array.length in
+  input
+  |> List.fold_left
+       (Array.map2 (fun (on, off) bit ->
+            match bit with On -> (on + 1, off) | Off -> (on, off + 1)))
+       (Array.make len (0, 0))
+
 let part1 input =
-  let input = parse input in
-  let diagnostic =
-    let len = input |> List.hd |> Array.length in
-    input
-    |> List.fold_left
-         (Array.map2 (fun (on, off) bit ->
-              match bit with On -> (on + 1, off) | Off -> (on, off + 1)))
-         (Array.make len (0, 0))
+  let diagnostic = parse input |> diagnostic in
+  let collect f =
+    diagnostic |> Array.map f
+    |> Array.map (function true -> On | false -> Off)
+    |> bits_to_dec
   in
-  let count diagnostic f =
-    let bits = diagnostic |> Array.map f |> Array.to_seq |> String.of_seq in
-    Scanf.sscanf ("0b" ^ bits) "%i" (fun x -> x)
-  in
-  let gamma_rate (on, off) = if off < on then '1' else '0' in
-  let epsilon_rate (on, off) = if off < on then '0' else '1' in
-  count diagnostic gamma_rate * count diagnostic epsilon_rate |> string_of_int
+  let gamma_rate (on, off) = off <= on in
+  let epsilon_rate (on, off) = off > on in
+  collect gamma_rate * collect epsilon_rate |> string_of_int
 
 let%expect_test "part1" =
   print_string (part1 test_input);
   [%expect {| 198 |}]
+
+let part2 input =
+  let input = parse input in
+  let collect f =
+    let rec collect lst cursor =
+      let diagnostic = diagnostic lst in
+      let on, off = Array.get diagnostic cursor in
+      match
+        lst
+        |> List.filter (fun arr ->
+               let bit = Array.get arr cursor in
+               f bit (on, off))
+      with
+      | [ rating ] -> rating
+      | next -> collect next (cursor + 1)
+    in
+    collect input 0 |> bits_to_dec
+  in
+  let oxygen_generator_rating bit (on, off) =
+    match (bit, off <= on) with
+    | On, true | Off, false -> true
+    | On, false | Off, true -> false
+  in
+  let co2_scrubber_rating bit (on, off) =
+    match (bit, off > on) with
+    | On, true | Off, false -> true
+    | On, false | Off, true -> false
+  in
+  collect oxygen_generator_rating * collect co2_scrubber_rating |> string_of_int
+
+let%expect_test "part2" =
+  print_string (part2 test_input);
+  [%expect {| 230 |}]
