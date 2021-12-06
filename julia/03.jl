@@ -1,6 +1,6 @@
 function count_bits(chars::AbstractVector{Char})
-    c0 = count(c -> c == '0', chars)
-    c1 = count(c -> c == '1', chars)
+    c0 = count(chars .== '0')
+    c1 = count(chars .== '1')
     c0, c1
 end
 
