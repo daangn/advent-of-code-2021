@@ -15,6 +15,7 @@
  (depends
   (ocaml (>= 4.12))
   (dune (>= 2.0))
+  (angstrom (>= 0.15.0))
   core
   (odoc :with-doc)
   (ppx_inline_test :with-test)
