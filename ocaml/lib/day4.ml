@@ -93,12 +93,12 @@ module Parser = struct
     lift3 (fun turns _ boards -> { turns; boards }) turns multiple boards
 
   let parse input = input |> parse_string ~consume:All game |> Result.get_ok
-end
 
-let%expect_test _ =
-  let result = Parser.parse test_input in
-  result.turns |> List.iter print_int;
-  [%expect {| 74951117232014212410161361525122218208193261 |}]
+  let%expect_test _ =
+    let { turns; _ } = parse test_input in
+    turns |> List.iter print_int;
+    [%expect {| 74951117232014212410161361525122218208193261 |}]
+end
 
 let part1 input =
   let open Bingo in
