@@ -62,26 +62,16 @@ end
 
 module Parser = struct
   open Angstrom
+  open Util.Parser
   open Bingo
-
-  let digits =
-    take_while1 (function '0' .. '9' -> true | _ -> false) >>| int_of_string
-
-  let ws = skip_while (function ' ' -> true | _ -> false)
-
-  let space = char ' '
-
-  let newline = char '\n'
 
   let multiple = skip_many1 newline
 
-  let comma = char ','
-
-  let turn = digits
+  let turn = digit
 
   let turns = sep_by1 comma turn
 
-  let cell = ws *> digits >>| fun x -> Unmarked x
+  let cell = ws *> digit >>| fun x -> Unmarked x
 
   let cols = sep_by1 space cell >>| Array.of_list
 

@@ -30,6 +30,8 @@ let answer =
   | 3, 2 -> Day3.part2 input
   | 4, 1 -> Day4.part1 input
   | 4, 2 -> Day4.part2 input
+  | 5, 1 -> Day5.part1 input
+  | 5, 2 -> Day5.part2 input
   | _ -> raise (No_solution (!day, !part))
 in
 print_endline answer
