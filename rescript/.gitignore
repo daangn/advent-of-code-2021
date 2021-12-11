@@ -2,3 +2,5 @@
 /lib
 .bsb.lock
 .merlin
+
+/src/*.input.txt

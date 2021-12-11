@@ -5,11 +5,16 @@
   "repository": "https://github.com/daangn/advent-of-code-2021",
   "author": "Tony <tony@daangn.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "re:build": "rescript",
-    "re:start": "rescript build -w"
+    "re:start": "rescript build -w",
+    "day1": "watchlist src --eager -- node ./src/day1.bs.js"
   },
   "devDependencies": {
     "rescript": "^9.1.4"
+  },
+  "dependencies": {
+    "watchlist": "^0.3.1"
   }
 }
