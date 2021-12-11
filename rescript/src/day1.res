@@ -5,6 +5,14 @@ Js.log("Advent of Code - ReScript - Day 1")
 
 let input = readFileSync(resolve("./src/day1.input.txt"), "utf-8")
 
+let parseInput = (input) => 
+  input
+    -> Js.String.trim
+    -> Js.String.split("\n", _)
+    -> Js.Array.map(Belt.Int.fromString, _)
+
+let depths = input -> parseInput
+
 /**
  * PART 1
  */
@@ -12,16 +20,8 @@ type part1Acc = {
   answer: int,
   beforeDepth: option<int>,
 }
-
-let parseInput = (input) => 
-  input
-    -> Js.String.trim
-    -> Js.String.split("\n", _)
-    -> Js.Array.map(Belt.Int.fromString, _)
-
 let part1Answer =
-  input
-  -> parseInput
+  depths
   -> Js.Array.reducei(({ answer, beforeDepth }, nowDepth, i) => {
     if i == 0 {
       {
@@ -50,7 +50,6 @@ Js.log("- Part 1 Answer: " ++ Js.Int.toString(part1Answer))
 /**
  * PART 2
  */
-let depths = input -> parseInput
 
 let part2Answer = Js.Array.reduce((answer, i) => {
   let one = Js.Option.getWithDefault(0, depths[i])

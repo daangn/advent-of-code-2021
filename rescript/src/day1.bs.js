@@ -17,9 +17,9 @@ function parseInput(input) {
   return __x.map(Belt_Int.fromString);
 }
 
-var __x = parseInput(input);
+var depths = parseInput(input);
 
-var part1Answer = __x.reduce((function (param, nowDepth, i) {
+var part1Answer = depths.reduce((function (param, nowDepth, i) {
         var answer = param.answer;
         if (i === 0 || Caml_obj.caml_greaterequal(param.beforeDepth, nowDepth)) {
           return {
@@ -39,8 +39,6 @@ var part1Answer = __x.reduce((function (param, nowDepth, i) {
 
 console.log("- Part 1 Answer: " + part1Answer.toString());
 
-var depths = parseInput(input);
-
 var part2Answer = Belt_Array.range(0, depths.length - 4 | 0).reduce((function (answer, i) {
         var one = Js_option.getWithDefault(0, Caml_array.get(depths, i));
         var two = Js_option.getWithDefault(0, Caml_array.get(depths, i + 1 | 0));
@@ -58,8 +56,8 @@ console.log("- Part 2 Answer: " + part2Answer.toString());
 export {
   input ,
   parseInput ,
-  part1Answer ,
   depths ,
+  part1Answer ,
   part2Answer ,
   
 }
