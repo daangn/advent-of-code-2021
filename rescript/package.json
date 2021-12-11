@@ -1,0 +1,15 @@
+{
+  "name": "advent-of-code-2021-rescript",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/daangn/advent-of-code-2021",
+  "author": "Tony <tony@daangn.com>",
+  "license": "MIT",
+  "scripts": {
+    "re:build": "rescript",
+    "re:start": "rescript build -w"
+  },
+  "devDependencies": {
+    "rescript": "^9.1.4"
+  }
+}
