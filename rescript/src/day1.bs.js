@@ -5,14 +5,21 @@ import * as Path from "path";
 import * as Belt_Int from "rescript/lib/es6/belt_Int.js";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Js_option from "rescript/lib/es6/js_option.js";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as Caml_array from "rescript/lib/es6/caml_array.js";
+
+console.log("Advent of Code - ReScript - Day 1");
 
 var input = Fs.readFileSync(Path.resolve("./src/day1.input.txt"), "utf-8");
 
-var __x = input.trim().split("\n");
+function parseInput(input) {
+  var __x = input.trim().split("\n");
+  return __x.map(Belt_Int.fromString);
+}
 
-var __x$1 = __x.map(Belt_Int.fromString);
+var __x = parseInput(input);
 
-var answer = __x$1.reduce((function (param, nowDepth, i) {
+var part1Answer = __x.reduce((function (param, nowDepth, i) {
         var answer = param.answer;
         if (i === 0 || Caml_obj.caml_greaterequal(param.beforeDepth, nowDepth)) {
           return {
@@ -30,11 +37,30 @@ var answer = __x$1.reduce((function (param, nowDepth, i) {
       beforeDepth: Js_option.some(-1)
     }).answer;
 
-console.log(answer);
+console.log("- Part 1 Answer: " + part1Answer.toString());
+
+var depths = parseInput(input);
+
+var part2Answer = Belt_Array.range(0, depths.length - 4 | 0).reduce((function (answer, i) {
+        var one = Js_option.getWithDefault(0, Caml_array.get(depths, i));
+        var two = Js_option.getWithDefault(0, Caml_array.get(depths, i + 1 | 0));
+        var three = Js_option.getWithDefault(0, Caml_array.get(depths, i + 2 | 0));
+        var four = Js_option.getWithDefault(0, Caml_array.get(depths, i + 3 | 0));
+        if (((one + two | 0) + three | 0) < ((two + three | 0) + four | 0)) {
+          return answer + 1 | 0;
+        } else {
+          return answer;
+        }
+      }), 0);
+
+console.log("- Part 2 Answer: " + part2Answer.toString());
 
 export {
   input ,
-  answer ,
+  parseInput ,
+  part1Answer ,
+  depths ,
+  part2Answer ,
   
 }
-/* input Not a pure module */
+/*  Not a pure module */
