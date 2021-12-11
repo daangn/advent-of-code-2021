@@ -7,9 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "re:build": "rescript",
-    "re:start": "rescript build -w",
-    "day1": "watchlist src --eager -- node ./src/day1.bs.js"
+    "compile": "rescript build",
+    "start": "watchlist src --eager -- node"
   },
   "devDependencies": {
     "rescript": "^9.1.4"
