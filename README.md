@@ -39,11 +39,12 @@
 
 ## Entries
 
-| Name   | GitHub username                                | Language | Source           |
-|:------ |:---------------------------------------------- | -------- | ---------------- |
-| Tim    | [cometkim](https://github.com/cometkim)        | OCaml    | [(Link)](ocaml)  |
-| Carter | [jinwoo1225](https://github.com/jinwoo1225)    | Erlang   | [(Link)](erlang) |
-| Thomas | [sanxiyn](https://github.com/sanxiyn)          | Julia    | [(Link)](julia)  |
+| Name   | GitHub username                                            | Language | Source           |
+|:------ |:---------------------------------------------------------- | -------- | ---------------- |
+| Tim    | [cometkim](https://github.com/cometkim)                    | OCaml    | [(Link)](ocaml)  |
+| Carter | [jinwoo1225](https://github.com/jinwoo1225)                | Erlang   | [(Link)](erlang) |
+| Thomas | [sanxiyn](https://github.com/sanxiyn)                      | Julia    | [(Link)](julia)  |
+| Tony   | [tonyfromundefined](https://github.com/tonyfromundefined)  | ReScript | [(Link)](rescript)  |
 
 ## LICENSE
 
