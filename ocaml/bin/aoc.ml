@@ -4,9 +4,7 @@ open Core
 exception No_solution of int * int
 
 let usage_msg = "aoc -d day -p part < input.txt"
-
 let day = ref 1
-
 let part = ref 1
 
 let speclist =

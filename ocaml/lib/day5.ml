@@ -17,13 +17,9 @@ module Parser = struct
   open Util.Parser
 
   let coord = lift3 (fun x _ y -> (x, y)) digit comma digit
-
   let dir = string " -> " >>| ignore
-
   let line = lift3 (fun c1 _ c2 -> (c1, c2)) coord dir coord
-
   let lines = sep_by newline line
-
   let parse input = input |> parse_string ~consume:All lines |> Result.get_ok
 
   let%expect_test _ =

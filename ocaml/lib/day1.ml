@@ -1,5 +1,4 @@
 let test_input = "199\n200\n208\n210\n200\n207\n240\n269\n260\n263"
-
 let parse input = input |> String.split_on_char '\n' |> List.map int_of_string
 
 let count elems =

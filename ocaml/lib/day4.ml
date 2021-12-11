@@ -20,9 +20,7 @@ let test_input =
 
 module Bingo = struct
   type cell = Marked of int | Unmarked of int
-
   type board = cell array array
-
   type game = { turns : int list; boards : board list }
 
   let rotate board =
@@ -66,17 +64,11 @@ module Parser = struct
   open Bingo
 
   let multiple = skip_many1 newline
-
   let turn = digit
-
   let turns = sep_by1 comma turn
-
   let cell = ws *> digit >>| fun x -> Unmarked x
-
   let cols = sep_by1 space cell >>| Array.of_list
-
   let rows = sep_by1 newline cols >>| Array.of_list
-
   let boards = sep_by1 multiple rows
 
   let game =
